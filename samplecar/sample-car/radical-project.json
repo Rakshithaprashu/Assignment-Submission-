@@ -1,0 +1,443 @@
+{
+	"types": {
+		"models": {
+			"Car": {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"title": "Car",
+				"properties": {
+					"carId": {
+						"type": "string",
+						"annotations": []
+					},
+					"name": {
+						"type": "string",
+						"annotations": []
+					},
+					"owner": {
+						"type": "object",
+						"$ref": "https://radical.sh/samplecar/models/Owner",
+						"annotations": []
+					},
+					"vehicleType": {
+						"type": "string",
+						"annotations": []
+					},
+					"awards": {
+						"items": {
+							"$ref": "https://radical.sh/samplecar/models/Award",
+							"type": "object"
+						},
+						"$ref": "java/util/List",
+						"annotations": []
+					}
+				},
+				"$id": "https://radical.sh/samplecar/models/Car",
+				"required": [],
+				"key": "carId",
+				"annotations": [
+					{
+						"annotation": "@NoArgsContructor",
+						"$ref": "lombok/NoArgsConstructor"
+					},
+					{
+						"annotation": "@Getter",
+						"$ref": "lombok/Getter"
+					},
+					{
+						"annotation": "@Setter",
+						"$ref": "lombok/Setter"
+					},
+					{
+						"arguments": [],
+						"annotation": "@Document",
+						"$ref": "org/springframework/data/mongodb/core/mapping/Document"
+					}
+				],
+				"methods": {
+					"toString": {
+						"access": {
+							"level": "public"
+						},
+						"arguments": [],
+						"annotations": [
+							{
+								"annotation": "@Override",
+								"$ref": "java/lang/Override"
+							}
+						],
+						"body": "return carId;",
+						"returns": [
+							{
+								"type": "string"
+							}
+						]
+					},
+					"getNewCarId": {
+						"isStatic": true,
+						"access": {
+							"level": "public"
+						},
+						"arguments": [],
+						"annotations": [],
+						"references": [
+							{
+								"$ref": "java.util.UUID"
+							}
+						],
+						"body": " return UUID.randomUUID().toString();\n                ",
+						"returns": [
+							{
+								"type": "string",
+								"annotations": []
+							}
+						]
+					}
+				}
+			},
+			"Owner": {
+				"title": "Owner",
+				"$id": "https://radical.sh/samplecar/models/Owner",
+				"properties": {
+					"name": {
+						"type": "string",
+						"annotations": []
+					},
+					"ownerId": {
+						"type": "string",
+						"annotations": []
+					}
+				},
+				"required": [],
+				"key": "ownerId",
+				"annotations": [
+					{
+						"annotation": "@NoArgsContructor",
+						"$ref": "lombok/NoArgsConstructor"
+					},
+					{
+						"annotation": "@Getter",
+						"$ref": "lombok/Getter"
+					},
+					{
+						"annotation": "@Setter",
+						"$ref": "lombok/Setter"
+					},
+					{
+						"arguments": [],
+						"annotation": "@Document",
+						"$ref": "org/springframework/data/mongodb/core/mapping/Document"
+					}
+				],
+				"methods": {
+					"toString": {
+						"access": {
+							"level": "public"
+						},
+						"arguments": [],
+						"annotations": [
+							{
+								"annotation": "@Override",
+								"$ref": "java/lang/Override"
+							}
+						],
+						"body": "return ownerId;",
+						"returns": [
+							{
+								"type": "string"
+							}
+						]
+					},
+					"getNewOwnerId": {
+						"isStatic": true,
+						"access": {
+							"level": "public"
+						},
+						"arguments": [],
+						"annotations": [],
+						"references": [
+							{
+								"$ref": "java.util.UUID"
+							}
+						],
+						"body": " return UUID.randomUUID().toString();\n                ",
+						"returns": [
+							{
+								"type": "string",
+								"annotations": []
+							}
+						]
+					}
+				}
+			},
+			"Award": {
+				"title": "Award",
+				"properties": {
+					"name": {
+						"type": "string",
+						"annotations": []
+					},
+					"year": {
+						"type": "string",
+						"annotations": []
+					},
+					"awardId": {
+						"type": "string",
+						"annotations": []
+					}
+				},
+				"$id": "https://radical.sh/samplecar/models/Award",
+				"required": [],
+				"key": "awardId",
+				"annotations": [
+					{
+						"annotation": "@NoArgsContructor",
+						"$ref": "lombok/NoArgsConstructor"
+					},
+					{
+						"annotation": "@Getter",
+						"$ref": "lombok/Getter"
+					},
+					{
+						"annotation": "@Setter",
+						"$ref": "lombok/Setter"
+					},
+					{
+						"arguments": [],
+						"annotation": "@Document",
+						"$ref": "org/springframework/data/mongodb/core/mapping/Document"
+					}
+				],
+				"methods": {
+					"toString": {
+						"access": {
+							"level": "public"
+						},
+						"arguments": [],
+						"annotations": [
+							{
+								"annotation": "@Override",
+								"$ref": "java/lang/Override"
+							}
+						],
+						"body": "return awardId;",
+						"returns": [
+							{
+								"type": "string"
+							}
+						]
+					},
+					"getNewAwardId": {
+						"isStatic": true,
+						"access": {
+							"level": "public"
+						},
+						"arguments": [],
+						"annotations": [],
+						"references": [
+							{
+								"$ref": "java.util.UUID"
+							}
+						],
+						"body": " return UUID.randomUUID().toString();\n                ",
+						"returns": [
+							{
+								"type": "string",
+								"annotations": []
+							}
+						]
+					}
+				}
+			}
+		},
+		"enums": {}
+	},
+	"action": {
+		"models": {
+			"Car": {
+				"actions": {
+					"Create": {
+						"enabled": true,
+						"httpVerb": "Post",
+						"apiEnabled": true,
+						"actionType": "sync",
+						"isAuthEnabled": false,
+						"parameters": {}
+					},
+					"Update": {
+						"enabled": true,
+						"httpVerb": "Put",
+						"apiEnabled": true,
+						"actionType": "sync",
+						"isAuthEnabled": false,
+						"parameters": {},
+						"path": "/{carId}"
+					},
+					"Get": {
+						"enabled": true,
+						"httpVerb": "Get",
+						"apiEnabled": true,
+						"actionType": "sync",
+						"isAuthEnabled": false,
+						"parameters": {},
+						"path": "/{carId}"
+					},
+					"Select": {
+						"enabled": true,
+						"httpVerb": "Get",
+						"apiEnabled": true,
+						"actionType": "sync",
+						"isAuthEnabled": false,
+						"parameters": {
+							"selectQueryParameters": {
+								"filters": {},
+								"sortFields": []
+							}
+						},
+						"path": ""
+					},
+					"Delete": {
+						"enabled": true,
+						"httpVerb": "Delete",
+						"apiEnabled": true,
+						"actionType": "sync",
+						"isAuthEnabled": false,
+						"parameters": {},
+						"path": "/{carId}"
+					}
+				},
+				"path": "cars"
+			}
+		}
+	},
+	"project": {
+		"path": "/v1/",
+		"groupName": "sh.radical",
+		"build": {
+			"tool": "gradle"
+		},
+		"logger": {
+			"appenderConfig": {
+				"consoleAppender": {
+					"enabled": true
+				},
+				"fileAppender": {
+					"enabled": true
+				}
+			}
+		},
+		"health": {
+			"dependenciesHealthEnabled": true,
+			"enabled": true
+		},
+		"unitTests": {
+			"enabled": false
+		},
+		"packageName": "sh.radical.samplecar",
+		"folderName": "sample-car",
+		"projectName": "samplecar",
+		"version": {
+			"org.springframework.boot": "3.1.2"
+		},
+		"swagger": {
+			"enabled": true
+		},
+		"authentication": {
+			"authSchemetype": [
+				"Basic"
+			],
+			"authParms": {
+				"jwtAuthParams": {
+					"userId": "",
+					"issuerURL": "",
+					"jwtModel": ""
+				}
+			},
+			"enabled": true
+		}
+	},
+	"config": {
+		"customProperties": ""
+	},
+	"version": 16,
+	"store": {
+		"defaultStorage": {
+			"dataBaseName": "MONGO"
+		}
+	},
+	"outboundevents": {},
+	"channels": {
+		"default": {
+			"channelName": "default",
+			"topicName": "defaultTopic71569",
+			"binderName": "default",
+			"containsMultiSchemaEvents": true
+		}
+	},
+	"binders": {
+		"default": {
+			"type": "kafka",
+			"binderName": "default",
+			"brokers": "localhost:9092"
+		}
+	},
+	"integrations": {
+		"rest": {
+			"requestGroups": {
+				"default": {
+					"baseUrl": "https://radical.sh/api/",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"timeoutInMilliSeconds": 45000,
+					"authScheme": {
+						"type": "No Auth"
+					}
+				}
+			},
+			"restSettings": {
+				"isRequestBodySelectionAllowedForAllVerbs": true
+			},
+			"requests": {
+				"C1": {
+					"groupName": "default",
+					"httpVerb": "Get",
+					"url": "",
+					"requestName": "C1",
+					"requestBody": {
+						"encType": "text/plain",
+						"type": {
+							"type": "string",
+							"annotations": [],
+							"access": {
+								"level": ""
+							},
+							"addedTime": 1695332625166,
+							"defaultType": "value",
+							"isStatic": false,
+							"of": [],
+							"references": []
+						}
+					},
+					"responseBody": {
+						"type": {
+							"type": "string",
+							"annotations": [],
+							"access": {
+								"level": ""
+							},
+							"addedTime": 1695332649322,
+							"defaultType": "value",
+							"isStatic": false,
+							"of": [],
+							"references": []
+						}
+					}
+				}
+			}
+		}
+	},
+	"inboundevents": {},
+	"_persist": {
+		"version": 16
+	}
+}
